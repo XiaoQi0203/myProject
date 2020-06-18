@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8887/ConfigServer
+      profile: dev
+      label: master
+  #gitee中的文件名，myconfig-dev.properties
+  application:
+    name: UserModel
+  #  RabbitMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.2//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.um.dao.MenuDao">
+    <resultMap id="menuMap" type="Menu">
+        <id column="id" property="id"></id>
+        <result column="text" property="text"></result>
+        <result column="iconCls" property="iconCls"></result>
+        <result column="href" property="href"></result>
+        <result column="desc" property="desc"></result>
+        <collection property="children" ofType="Menu">
+            <id column="id_" property="id"></id>
+            <result column="text_" property="text"></result>
+            <result column="iconCls_" property="iconCls"></result>
+            <result column="href_" property="href"></result>
+            <result column="desc_" property="desc"></result>
+        </collection>
+    </resultMap>
+    <select id="queryMenuAll" resultMap="menuMap">
+        SELECT t1.*,t2.id id_,t2.text text_,t2.iconCls iconCls_,t2.href href_,t2.desc desc_ from t_menu t1 INNER JOIN t_menu t2 on t1.id=t2.parent_id where t1.parent_id is null
+    </select>
+</mapper>

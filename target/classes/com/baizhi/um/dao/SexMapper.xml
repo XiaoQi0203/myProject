@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.2//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.um.dao.SexDao">
+    <select id="selectCount" resultType="Sex">
+        SELECT sex,count(*) count from t_user group by sex
+    </select>
+</mapper>
